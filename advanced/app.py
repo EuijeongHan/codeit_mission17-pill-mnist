@@ -17,6 +17,7 @@
 import io
 import os
 from datetime import datetime
+import cv2
 
 import numpy as np
 import streamlit as st
@@ -51,6 +52,21 @@ def load_model(path: str) -> YOLO:
 # -----------------------------------------------------------------------------
 # 추론
 # -----------------------------------------------------------------------------
+def apply_clahe(pil_img: Image.Image) -> np.ndarray:
+    """학습 때와 동일한 CLAHE 전처리.
+    LAB 색공간에서 L(밝기) 채널에만 CLAHE 적용 (clipLimit=2.0, 8x8).
+    반환: RGB ndarray
+    """
+    rgb = np.array(pil_img.convert("RGB"))
+    bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+    lab = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(lab)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    l = clahe.apply(l)
+    merged = cv2.merge((l, a, b))
+    out_bgr = cv2.cvtColor(merged, cv2.COLOR_LAB2BGR)
+    return cv2.cvtColor(out_bgr, cv2.COLOR_BGR2RGB)   # RGB로 반환
+
 def run_detection(model: YOLO, pil_img: Image.Image, conf: float, iou: float):
     """이미지에서 알약을 탐지.
 
@@ -59,10 +75,10 @@ def run_detection(model: YOLO, pil_img: Image.Image, conf: float, iou: float):
       - detections : [{"name":품목명, "conf":신뢰도, "xyxy":[x1,y1,x2,y2]}, ...]
     ultralytics가 내부적으로 letterbox 리사이즈 + 추론 + NMS를 수행한다.
     """
-    rgb = pil_img.convert("RGB")
+    clahe_rgb = apply_clahe(pil_img)        # 학습과 동일한 CLAHE 적용
     # predict: imgsz로 letterbox 후 추론, conf/iou로 필터 + NMS
     result = model.predict(
-        source=np.array(rgb),
+        source=clahe_rgb,
         imgsz=IMG_SIZE,
         conf=conf,
         iou=iou,
