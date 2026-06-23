@@ -1,6 +1,5 @@
 
 
-https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
 
 # 🧪 AI 모델 서비스 배포 — MNIST & PillFinder
 
@@ -8,6 +7,7 @@ https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
 
 ## 🎬 데모
 
+https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
 
 
 
