@@ -4,7 +4,9 @@
 
 ## 🎬 데모
 
-![PillFinder 데모](assets/demo.gif)
+
+
+
 
 ## 📦 구성
 
