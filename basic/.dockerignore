@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+mnist-dummy.onnx
+make_dummy.py
+test_pipeline.py
+srv.log
+data/
+.cache/
