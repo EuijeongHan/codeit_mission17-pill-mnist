@@ -1,13 +1,20 @@
+
+
+
 # 🧪 AI 모델 서비스 배포 — MNIST & PillFinder
 
 손으로 그린 숫자를 인식하는 **MNIST 분류 서비스**와, 알약 사진에서 약을 탐지하는 **PillFinder 객체 탐지 서비스**를 Streamlit으로 구현하고 Docker로 배포한 프로젝트입니다.
 
 ## 🎬 데모
 
-![PillFinder 데모](assets/demo.gif)
+### 심화 — PillFinder 알약 탐지
+https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
+
+### 기본 — MNIST 손글씨 인식
+https://github.com/user-attachments/assets/fc14d346-ec39-467c-8a8c-3840ce26eb96
+
 
 ## 📦 구성
-
 | | 기본 (MNIST) | 심화 (PillFinder) |
 |---|---|---|
 | 작업 | 손글씨 숫자 인식 | 알약 객체 탐지 (73종) |
