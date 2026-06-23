@@ -7,12 +7,11 @@
 
 ## 🎬 데모
 
-### 심화 — PillFinder 알약 탐지
-https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
-
 ### 기본 — MNIST 손글씨 인식
 https://github.com/user-attachments/assets/fc14d346-ec39-467c-8a8c-3840ce26eb96
 
+### 심화 — PillFinder 알약 탐지
+https://github.com/user-attachments/assets/0427277c-33ae-4bb5-8d8c-eb0627e10dac
 
 ## 📦 구성
 | | 기본 (MNIST) | 심화 (PillFinder) |
